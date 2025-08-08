@@ -1,16 +1,5 @@
 #PARTE ANDRÉS SANTANA, NO SE HA IMPLEMENTADO AL MAIN 
 import requests
-def obt_ids():
-    url = "https://collectionapi.metmuseum.org/public/collection/v1/objects"
-    
-    respuesta = requests.get(url, timeout=100)
-    if respuesta.status_code == 200:
-        data = respuesta.json()
-        return data.get('objectIDs', [])
-    else:
-        print(f"Error: {respuesta.status_code}")
-        return []
-    
 def obt_obra_id(object_id):
     url = f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{object_id}"
     respuesta = requests.get(url)
@@ -332,3 +321,4 @@ __---------------------->
     elif op == "Salir" or op == "6":
         print("Ha salido de la opción")
         break
+
