@@ -14,13 +14,13 @@ def filtrar_nacionalidad(nacionalidad, max_resultados=5):
     
     url_busqueda = f"https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&q={nacionalidad}"
     
-    respuesta = requests.get(url_busqueda, timeout=10)
+    respuesta = requests.get(url_busqueda)
     
     if respuesta.status_code == 200:
         data = respuesta.json()
         object_ids = data.get('objectIDs', [])
         
-        print(f"Se encontraron {len(object_ids)} obras para la nacionalidad '{nacionalidad}'.")
+        print(f"Se encontraron obras para la nacionalidad {nacionalidad}")
 
         for i, object_id in enumerate(object_ids):
             if len(resultados) >= max_resultados:
@@ -321,4 +321,5 @@ __---------------------->
     elif op == "Salir" or op == "6":
         print("Ha salido de la opción")
         break
+
 
