@@ -3,7 +3,7 @@ import requests
 def obt_ids():
     url = "https://collectionapi.metmuseum.org/public/collection/v1/objects"
     
-    respuesta = requests.get(url, timeout=100)
+    respuesta = requests.get(url)
     if respuesta.status_code == 200:
         data = respuesta.json()
         return data.get('objectIDs', [])
@@ -23,9 +23,9 @@ def filtrar_nacionalidad(nacionalidad, max_resultados=5):
     
     resultados = []
     
-    url_busqueda = f"https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&q={nacionalidad}"
+    url_busq = f"https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&q={nacionalidad}"
     
-    respuesta = requests.get(url_busqueda, timeout=10)
+    respuesta = requests.get(url_busq)
     
     if respuesta.status_code == 200:
         data = respuesta.json()
@@ -40,12 +40,11 @@ def filtrar_nacionalidad(nacionalidad, max_resultados=5):
             obra = obt_obra_id(object_id) 
             if obra:
                 resultados.append({
+                    "ID" : obra.get("objectID")
                     "titulo": obra.get("title"),
                     "artista": obra.get("artistDisplayName"),
                     "nacionalidad": obra.get("artistNationality"),
-                    "fecha": obra.get("objectDate"),
-                    "departamento": obra.get("department"),
-                    "url_imagen": obra.get("primaryImageSmall")
+                    "fecha": obra.get("objectDate")
                 })
                 
     else:
@@ -56,13 +55,11 @@ def filtrar_nacionalidad(nacionalidad, max_resultados=5):
 
 def mostrar_resultados(obras):
     for obra in obras:
+        print(f"ID: {obra['ID']}")
         print(f"Título: {obra['titulo']}")
         print(f"Artista: {obra['artista']}")
         print(f"Nacionalidad: {obra['nacionalidad']}")
         print(f"Fecha: {obra['fecha']}")
-        print(f"Departamento: {obra['departamento']}")
-        print(f"Imagen: {obra['url_imagen']}")
-        print("-" * 40)
 
 while True:
     
@@ -334,7 +331,5 @@ __---------------------->
         break
                     
         
-nacionalidad = input("Ingresa la nacionalidad del autor (en inglés):")
-obras_encontradas = filtrar_nacionalidad(nacionalidad)
 
-mostrar_resultados(obras_encontradas)
+
