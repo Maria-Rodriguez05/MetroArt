@@ -1,13 +1,5 @@
 #PARTE ANDRÉS SANTANA, IMPLEMENTADO AL MAIN 
 import requests
-def obt_obra_id(object_id):
-    url = f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{object_id}"
-    respuesta = requests.get(url)
-    if respuesta.status_code == 200:
-        return respuesta.json()
-    else:
-        return None
-    
 def filtrar_nacionalidad(nacionalidad, max_resultados=5):
     
     resultados = []
@@ -29,12 +21,10 @@ def filtrar_nacionalidad(nacionalidad, max_resultados=5):
             obra = obt_obra_id(object_id) 
             if obra:
                 resultados.append({
+                    "ID": obra.get("objectID"),
                     "titulo": obra.get("title"),
                     "artista": obra.get("artistDisplayName"),
                     "nacionalidad": obra.get("artistNationality"),
-                    "fecha": obra.get("objectDate"),
-                    "departamento": obra.get("department"),
-                    "url_imagen": obra.get("primaryImageSmall")
                 })
                 
     else:
@@ -42,17 +32,22 @@ def filtrar_nacionalidad(nacionalidad, max_resultados=5):
         
     return resultados
     
+def obt_obra_id(object_id):
+    url = f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{object_id}"
+    respuesta = requests.get(url)
+    if respuesta.status_code == 200:
+        return respuesta.json()
+    else:
+        return None  
 
 def mostrar_resultados(obras):
     for obra in obras:
-        print(f"Título: {obra['titulo']}")
-        print(f"Artista: {obra['artista']}")
-        print(f"Nacionalidad: {obra['nacionalidad']}")
-        print(f"Fecha: {obra['fecha']}")
-        print(f"Departamento: {obra['departamento']}")
-        print(f"Imagen: {obra['url_imagen']}")
-        print("-" * 40)
-
+        print("<----------------------------------------------->")
+        print(f"ID : {obra["ID"]}"}
+        print(f"Título: {obra["titulo"]}")
+        print(f"Artista: {obra["artista"]}")
+        print(f"Nacionalidad: {obra["nacionalidad"]}")
+        print("<----------------------------------------------->")
 def metod_nac():
     while True:
         
@@ -322,6 +317,7 @@ def metod_nac():
         elif op == "Salir" or op == "6":
             print("Ha salido de la opción")
             break
+
 
 
 
