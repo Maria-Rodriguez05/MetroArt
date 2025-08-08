@@ -332,9 +332,3 @@ __---------------------->
     elif op == "Salir" or op == "6":
         print("Ha salido de la opción")
         break
-                    
-        
-nacionalidad = input("Ingresa la nacionalidad del autor (en inglés):")
-obras_encontradas = filtrar_nacionalidad(nacionalidad)
-
-mostrar_resultados(obras_encontradas)
