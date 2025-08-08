@@ -1,4 +1,4 @@
-#PARTE ANDRÉS SANTANA, NO SE HA IMPLEMENTADO AL MAIN 
+#PARTE ANDRÉS SANTANA, IMPLEMENTADO AL MAIN 
 import requests
 def obt_obra_id(object_id):
     url = f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{object_id}"
@@ -322,6 +322,7 @@ def metod_nac():
         elif op == "Salir" or op == "6":
             print("Ha salido de la opción")
             break
+
 
 
 
