@@ -3,6 +3,7 @@ from apiClass import ApiClass
 from obra import Obra   
 from departamento import Departamento
 import requests
+from nacionalidaddef import metod_nac, mostrar_resultados, filtrar_nacionalidad, obt_obra_id
 from PIL import Image
 
 
@@ -169,6 +170,7 @@ class MetroArt:
                         print("Opcion no válida. Responda 'si' o 'no'.")
                 break
                         
+
 
 
 
