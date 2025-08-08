@@ -43,7 +43,7 @@ def obt_obra_id(object_id):
 def mostrar_resultados(obras):
     for obra in obras:
         print("<----------------------------------------------->")
-        print(f"ID : {obra["ID"]}"}
+        print(f"ID : {obra["ID"]}")
         print(f"Título: {obra["titulo"]}")
         print(f"Artista: {obra["artista"]}")
         print(f"Nacionalidad: {obra["nacionalidad"]}")
@@ -317,6 +317,7 @@ def metod_nac():
         elif op == "Salir" or op == "6":
             print("Ha salido de la opción")
             break
+
 
 
 
