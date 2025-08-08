@@ -34,16 +34,13 @@ class ApiClass:
         else:
             print(f"Error al obtener IDs de obras en departamento {departamento_id}: {respuesta.status_code}")
             return None
-        
-    def obtener_obras_por_nacionalidad(nacionalidad):
-        """Devuelve los IDs de obras según la nacionalidad del autor."""
-        respuesta = requests.get(f"https://collectionapi.metmuseum.org/public/collection/v1/search?artistOrCulture=true&q={nacionalidad}")
+    #nacionalidades update
+    def obt_obra_id(object_id):
+        url = f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{object_id}"
+        respuesta = requests.get(url)
         if respuesta.status_code == 200:
-            print("Obras por nacionalidad obtenidas correctamente.")
-            obras_json = respuesta.json()
-            return obras_json
+            return respuesta.json()
         else:
-            print(f"Error al obtener obras por nacionalidad: {respuesta.status_code}")
             return None
         
     def obtener_obras_por_autor(nombreAutor):
@@ -56,3 +53,4 @@ class ApiClass:
         else:
             print(f"Error al obtener obras por autor: {respuesta.status_code}")
             return None 
+
