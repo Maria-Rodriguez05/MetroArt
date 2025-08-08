@@ -31,7 +31,7 @@ class MetroArt:
                 self.ver_lista_de_obras_por_departamento()
 
             elif opcion == '3':
-                pass  
+                metod_nac()  
 
             elif opcion == '4':
                 print("Opción 4 seleccionada")        
@@ -170,6 +170,7 @@ class MetroArt:
                         print("Opcion no válida. Responda 'si' o 'no'.")
                 break
                         
+
 
 
 
