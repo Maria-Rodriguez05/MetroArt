@@ -32,13 +32,24 @@ def detalles_obra(object_id):
         return None
 def mostrar_results(obras):
   for obra in obras:
+    print("<----------------------------------------------->")
     print(f"ID: {obra["ID"]}")
     print(f"Título: {obra["titulo"]}")
     print(f"Artista: {obra["artista"]}")
+    print("<----------------------------------------------->")
 
 def interfaz_user():
-  elecc = str(input("Escriba el nombre del autor que quiera buscar: "))
-  obras_autor = filt_autor(elecc)
-  mostrar_results(obras_autor)
+    while True:
+        elecc = str(input("""1. Escriba el nombre del autor que quiera buscar (ejemplo: "Leonardo da Vinci"):
+2. Escriba "Salir" para salir
+-------------------------->
+"""))
+        if elecc == "2" or elecc == "salir" or elecc == "Salir":
+           print("Ha salido de la herramienta")
+           break
+        elif elecc != "2" or elecc != "salir" or elecc != "Salir":
+            obras_autor = filt_autor(elecc)
+            mostrar_results(obras_autor)
+
     
   
