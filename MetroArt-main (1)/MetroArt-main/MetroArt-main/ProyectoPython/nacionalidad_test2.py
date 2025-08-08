@@ -61,7 +61,7 @@ def metod_nac():
     ----------->
     """))
 
-        if op == "África" or op == "1" or op == "Africa":
+        if op == "África" or op == "1" or op == "Africa" or op == "africa" or op == "áfrica":
             op_af = str(input("""Elija la nacionalidad del autor (debe escribir la opción exactamente igual a como aparece en la lista)
     Argelia: Algerian
     Angola: Angolan
@@ -123,7 +123,7 @@ def metod_nac():
             obras_encontradas = filtrar_nacionalidad(op_af)
             mostrar_resultados(obras_encontradas)
 
-        elif op == "América" or op == "2" or op == "America":
+        elif op == "América" or op == "2" or op == "America" or op == "america" or op == "américa":
             op_am = str(input("""Elija la nacionalidad del autor (debe escribir la opción exactamente igual a como aparece en la lista)
     Anguila: Anguillan
     Antigua y Barbuda: Citizen of Antigua and Barbuda
@@ -175,7 +175,7 @@ def metod_nac():
             obras_encontradas = filtrar_nacionalidad(op_am)
             mostrar_resultados(obras_encontradas)
 
-        elif op == "Asia" or op == "3":
+        elif op == "Asia" or op == "3" or op == "asia":
             op_as = str(input("""Elija la nacionalidad del autor (debe escribir la opción exactamente igual a como aparece en la lista)
     Afganistán: Afghan
     Arabia Saudí: Saudi Arabian
@@ -231,7 +231,7 @@ def metod_nac():
     """))
             obras_encontradas = filtrar_nacionalidad(op_as)
             mostrar_resultados(obras_encontradas)
-        elif op == "Europa" or op == "4":
+        elif op == "Europa" or op == "4" or op == "europa":
             op_eu = str(input("""Elija la nacionalidad del autor (debe escribir la opción exactamente igual a como aparece en la lista)
     Alemania: German
     Andorra: Andorran
@@ -287,7 +287,7 @@ def metod_nac():
     """))
             obras_encontradas = filtrar_nacionalidad(op_eu)
             mostrar_resultados(obras_encontradas)
-        elif op == "Oceanía" or op =="5" or op =="Oceania":
+        elif op == "Oceanía" or op =="5" or op =="Oceania" or op == "oceania" or op == "oceanía":
             op_oc = str(input("""Elija la nacionalidad del autor (debe escribir la opción exactamente igual a como aparece en la lista)
     Australia: Australian
     Fiyi: Fijian
@@ -314,9 +314,10 @@ def metod_nac():
     """))
             obras_encontradas = filtrar_nacionalidad(op_oc)
             mostrar_resultados(obras_encontradas)
-        elif op == "Salir" or op == "6":
+        elif op == "Salir" or op == "6" or op == "salir":
             print("Ha salido de la opción")
             break
+
 
 
 
