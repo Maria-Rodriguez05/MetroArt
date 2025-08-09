@@ -1,5 +1,9 @@
 #PARTE ANDRÉS SANTANA, IMPLEMENTADO AL MAIN 
 import requests
+"""
+COMUNICACIÓN CON LA API, le decimos a la api que busque dentro del parámetro artisOrCulture e insertamos la nacionalidad que buscamos, se guardan IDs en una lista de resultados
+Creamos un diccionario con los resultados arrojados por la función obt_obra_id
+"""
 def filtrar_nacionalidad(nacionalidad, max_resultados=5):
     
     resultados = []
@@ -31,7 +35,9 @@ def filtrar_nacionalidad(nacionalidad, max_resultados=5):
         print(f"Error en la búsqueda: {respuesta.status_code}")
         
     return resultados
-    
+"""
+Obtenemos más detalles de la obra en particular
+"""
 def obt_obra_id(object_id):
     url = f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{object_id}"
     respuesta = requests.get(url)
@@ -39,7 +45,7 @@ def obt_obra_id(object_id):
         return respuesta.json()
     else:
         return None  
-
+"""Imprimimos los resultados obtenidos en base al diccionario creado anteriormente, si no se imprime nada en algunos parámetros, es que no están registrados dentro de la API """
 def mostrar_resultados(obras):
     for obra in obras:
         print("<----------------------------------------------->")
@@ -48,6 +54,9 @@ def mostrar_resultados(obras):
         print(f"Artista: {obra["artista"]}")
         print(f"Nacionalidad: {obra["nacionalidad"]}")
         print("<----------------------------------------------->")
+"""
+FINALMENTE CREAMOS UN MENÚ CON EL QUE EL USUARIO PODRÁ BUSCAR OBRAS CON LAS NACIONALIDADES REGISTRADAS
+"""
 def metod_nac():
     while True:
         
@@ -317,6 +326,7 @@ def metod_nac():
         elif op == "Salir" or op == "6" or op == "salir":
             print("Ha salido de la opción")
             break
+
 
 
 
