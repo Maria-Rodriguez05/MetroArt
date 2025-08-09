@@ -3,6 +3,7 @@
 Integrantes:
 Maria Rodriguez
 Andres Santana
-Ines Milano
+
+SECCION 1
 
 proyecto algoritmo metroArt
