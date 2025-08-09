@@ -1,4 +1,7 @@
-##OPCION 4 NO SE HA IMPLEMENTADO AL MAIN
+##OPCION 4
+"""De la misma manera que en el archivo referente a buscar obras por nacionalidad, se inicia pidiéndole a la api que nos de un id dentro de los parámetros artistOrCulture
+estas IDs se guardan en una lista, para que luego con la función detalles_obra se obtengan los datos requeridos de la id, con lo cual se creará un diccionario con cada ID
+"""
 import requests
 def filt_autor(autor, max_res = 10):
   resultados = []
@@ -23,6 +26,7 @@ def filt_autor(autor, max_res = 10):
   else:
     print(f"Error en la búsqueda: {respuesta.status_code}")
   return resultados
+"""En base a las IDs obtenidas da detalles escenciales pertenecientes a las IDs"""
 def detalles_obra(object_id):
     url = f"https://collectionapi.metmuseum.org/public/collection/v1/objects/{object_id}"
     respuesta = requests.get(url)
@@ -30,6 +34,10 @@ def detalles_obra(object_id):
         return respuesta.json()
     else:
         return None
+"""
+en base al diccionario obtenido anteriormente se hace print con un bucle para cada ID
+"""
+
 def mostrar_results(obras):
   for obra in obras:
     print("<----------------------------------------------->")
@@ -37,6 +45,10 @@ def mostrar_results(obras):
     print(f"Título: {obra["titulo"]}")
     print(f"Artista: {obra["artista"]}")
     print("<----------------------------------------------->")
+
+"""
+Se hace un menú con el que el usuario podrá interactuar
+"""
 
 def interfaz_user():
     while True:
